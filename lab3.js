@@ -37,15 +37,11 @@ const analyticsData = [
    * @returns {string} "Good" or "Low"
    */
   const getEngagementLevel = (user) => {
-    // TODO: use if/else or ternary operator
-    // Hint: Check if user.avgSessionDuration >= 200
     let engagement = "none";
     if (user.avgSessionDuration >= 200){
-      console.log("hi2")
       engagement = "Good";
     }else{
       engagement = "Low";
-      console.log("hi3")
     }
     return engagement; // Replace with your implementation
   };
@@ -59,7 +55,12 @@ const analyticsData = [
   const findLongestSessionUser = (data) => {
     // TODO: use for loop
     // Hint: Keep track of max duration and corresponding user name
-    return ""; // Replace with your implementation
+    let sessions = [];
+    for (let i = 0; i < data.length; i++) {
+      sessions.push(data[i].avgSessionDuration);
+    }
+    let underIndex = sessions.indexOf(Math.max(...sessions));
+    return (data[underIndex].name); // Replace with your implementation
   };
 
 
