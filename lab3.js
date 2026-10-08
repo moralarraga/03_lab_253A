@@ -74,7 +74,13 @@ const analyticsData = [
   const formatSessions = (data) => {
     // TODO: use map
     // Hint: Use template literal `${user.name}: ${user.totalSessions} sessions`
-    return []; // Replace with your implementation
+    let sessions = [];
+    for (const user of data){
+      sessions.push(`${user.name}: ${user.totalSessions} sessions`);
+    }
+    console.log(sessions);
+    
+    return sessions; // Replace with your implementation
     
   };
   
@@ -87,7 +93,16 @@ const analyticsData = [
   const getActiveUsers = (data) => {
     // TODO: use filter + map
     // Hint: First filter users with totalSessions >= 5, then map to get names
-    return []; // Replace with your implementation
+    let users = [];
+    let sessionLength;
+    for (const user of data){
+      sessionLength = `${user.totalSessions}`;
+      if (sessionLength >= 5){
+        users.push(`${user.name}`);  
+      }
+    }
+    console.log(users)
+    return users; // Replace with your implementation
   };
   
   /**
@@ -99,7 +114,13 @@ const analyticsData = [
   const getTotalSessions = (data) => {
     // TODO: use reduce
     // Hint: Accumulate user.totalSessions
-    return 0; // Replace with your implementation
+    let sessions = 0;
+    console.log(data)
+    for (const user of data){
+      sessions += user.totalSessions;
+    }
+    console.log(sessions);
+    return sessions; // Replace with your implementation
   };
   
   // ========================================
